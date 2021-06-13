@@ -23,11 +23,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  url_launcher: ^6.0.6
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.1
+  universal_io: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -40,6 +41,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - lib/assets/portrait.jpg
+    - lib/assets/github_icon.png
+    - lib/assets/linkedin_icon.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
