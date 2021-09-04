@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'work_menu.dart';
-import 'life_menu.dart';
+import 'music.dart';
 
 void main() {
   runApp(MyApp());
@@ -197,28 +197,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 6.0),
                 child: FloatingActionButton.extended(
                   heroTag: 'me',
-                  onPressed: () {
-                    showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        backgroundColor: Colors.black,
-                        title: const Text(
-                          'Under Maintenance!',
-                          style: TextStyle(color: Colors.yellow),
-                        ),
-                        content: const Text(
-                          'This part of my website will be available soon!',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () => Navigator.pop(context, 'OK'),
-                            child: const Text(
-                              'OK',
-                              style: TextStyle(color: Colors.lightBlue),
-                            ),
-                          ),
-                        ],
+                  onPressed: () async {
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MusicPage(),
                       ),
                     );
                   },
@@ -245,27 +228,123 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 6.0),
+                padding: EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 12.0),
                 child: FloatingActionButton.extended(
                   heroTag: 'link',
                   onPressed: () {
                     showDialog<String>(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.white,
                         title: const Text(
-                          'Under Maintenance!',
-                          style: TextStyle(color: Colors.yellow),
+                          'Other Places to Find Me',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.normal,
+                            fontStyle: FontStyle.normal,
+                            fontSize: 24.0,
+                          ),
                         ),
-                        content: const Text(
-                          'This part of my website will be available soon!',
-                          style: TextStyle(color: Colors.white),
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 6.0),
+                              child: FloatingActionButton.extended(
+                                heroTag: 'email',
+                                onPressed: () async {
+                                  if (await canLaunch(
+                                      'mailto:stevenohj@gmail.com')) {
+                                    await launch('mailto:stevenohj@gmail.com');
+                                  }
+                                },
+                                label: const Text(
+                                  'stevenohj@gmail.com',
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                                icon: const Icon(
+                                  Icons.email_rounded,
+                                  color: Colors.white,
+                                ),
+                                backgroundColor: Colors.black,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 6.0),
+                              child: FloatingActionButton.extended(
+                                heroTag: 'github',
+                                onPressed: () async {
+                                  if (await canLaunch(
+                                      'https://github.com/stevenohj')) {
+                                    await launch(
+                                        'https://github.com/stevenohj');
+                                  }
+                                },
+                                label: const Text(
+                                  'github.com/stevenohj',
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                                icon: Image.asset(
+                                  'lib/assets/github_icon.png',
+                                  width: 24.0,
+                                  height: 24.0,
+                                ),
+                                backgroundColor: Colors.black,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 6.0),
+                              child: FloatingActionButton.extended(
+                                heroTag: 'linkedin',
+                                onPressed: () async {
+                                  if (await canLaunch(
+                                      'https://www.linkedin.com/in/stevenohj')) {
+                                    await launch(
+                                        'https://www.linkedin.com/in/stevenohj');
+                                  }
+                                },
+                                label: const Text(
+                                  'linkedin.com/in/stevenohj/',
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                    fontStyle: FontStyle.normal,
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                                icon: Image.asset(
+                                  'lib/assets/linkedin_icon.png',
+                                  width: 24.0,
+                                  height: 24.0,
+                                ),
+                                backgroundColor: Colors.black,
+                              ),
+                            ),
+                          ],
                         ),
                         actions: <Widget>[
                           TextButton(
-                            onPressed: () => Navigator.pop(context, 'OK'),
+                            onPressed: () => Navigator.pop(context, 'BACK'),
                             child: const Text(
-                              'OK',
+                              'BACK',
                               style: TextStyle(color: Colors.lightBlue),
                             ),
                           ),
@@ -293,50 +372,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            // Expanded(
-            //   flex: 1,
-            //   child: Padding(
-            //     padding: EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 12.0),
-            //     child: Card(
-            //       child: Row(
-            //         mainAxisSize: MainAxisSize.max,
-            //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //         crossAxisAlignment: CrossAxisAlignment.start,
-            //         children: [
-            //           Expanded(
-            //             child: IconButton(
-            //               // iconSize: 48.0,
-            //               padding: const EdgeInsets.all(24.0),
-            //               splashRadius: 24.0,
-            //               icon: Image.asset('lib/assets/github_icon.png'),
-            //               onPressed: () async {
-            //                 if (await canLaunch(
-            //                     'https://github.com/stevenohj')) {
-            //                   await launch('https://github.com/stevenohj');
-            //                 }
-            //               },
-            //             ),
-            //           ),
-            //           Expanded(
-            //             child: IconButton(
-            //               // iconSize: 48.0,
-            //               padding: const EdgeInsets.all(24.0),
-            //               splashRadius: 24.0,
-            //               icon: Image.asset('lib/assets/linkedin_icon.png'),
-            //               onPressed: () async {
-            //                 if (await canLaunch(
-            //                     'https://www.linkedin.com/in/stevenohj/')) {
-            //                   await launch(
-            //                       'https://www.linkedin.com/in/stevenohj/');
-            //                 }
-            //               },
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

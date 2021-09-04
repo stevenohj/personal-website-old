@@ -435,7 +435,7 @@ class _WorkHomePageState extends State<WorkHomePage> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           const Text(
-                                            'Web of Bars',
+                                            'This Website!',
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 3,
                                             textAlign: TextAlign.start,
@@ -447,7 +447,71 @@ class _WorkHomePageState extends State<WorkHomePage> {
                                             ),
                                           ),
                                           const Text(
-                                            'Full Stack Web App Development, Data Analysis & Visualization, Flutter (Dart)',
+                                            'Frontend Web App Development, Flutter (Dart)',
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 11,
+                                            textAlign: TextAlign.start,
+                                            style: const TextStyle(
+                                              fontStyle: FontStyle.normal,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18.0,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 8.0),
+                                          const Text(
+                                            "This website was built from scratch using Dart's Flutter Framework, Firebase, and data fetched from external APIs. While it serves as my professional website to showcase my skillset, technical experience, and other credentionals, it also gives you a peek into my personal passions, interests, and hobbies. Feel free to explore the website to lern more about me and to check out what I've built!",
+                                            overflow: TextOverflow.ellipsis,
+                                            softWrap: true,
+                                            maxLines: 50,
+                                            textAlign: TextAlign.start,
+                                            style: const TextStyle(
+                                              fontStyle: FontStyle.italic,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 16.0,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 8.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Card(
+                                    color: Colors.blueGrey,
+                                    child: Padding(
+                                      padding: EdgeInsets.fromLTRB(
+                                          12.0, 12.0, 12.0, 12.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Text(
+                                            'Web of Bars [WIP]',
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 3,
+                                            textAlign: TextAlign.start,
+                                            style: const TextStyle(
+                                              fontStyle: FontStyle.normal,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 24.0,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                          const Text(
+                                            'Web App Development, Data Analysis & Visualization, Flutter (Dart)',
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 11,
                                             textAlign: TextAlign.start,
